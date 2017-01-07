@@ -4,7 +4,10 @@
   var WineService = function ($http, $localStorage, wineApi) {
     return {
       getAllWine: function () {
-        return $localStorage.wines || [];
+        if (!$localStorage.wines) {
+          $localStorage.wines = []
+        }
+        return $localStorage.wines;
       },
 
       addWine: function (wine) {

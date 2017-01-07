@@ -16,6 +16,9 @@
           WineService.searchWine(vm.query).then(function (res) {
             vm.searchResult = res.data.Products.List;
             vm.noSearchResults = !vm.searchResult.length;
+          }, function (err) {
+            //TODO add error handling
+            console.log('Error: ', err);
           });
         } else {
           vm.pageLoad = true;

@@ -19,7 +19,10 @@ As grid system, I've chosen the [Alpha 6 version of Bootstrap](https://blog.getb
 
 As JavaScript styleguide I've chosen to rely loosely on Tood Motto's guide for AngularJS.
 
-JavaScript ES5 have been chosen due to time constraints. Optimally the app should be rewritten in ES6, using a build runner such as Gulp or Webpack to convert ES6 to ES5 (e.g. [Babel](https://babeljs.io/)). This would also allow for concatenation and minification of the code. It would then also be possible to adopt a better CSS strategy, with nesting and constants).
+JavaScript ES5 have been chosen due to time constraints. Optimally the app should be rewritten in ES6, using a build runner such as Gulp or Webpack to convert ES6 to ES5 (e.g. [Babel](https://babeljs.io/)). This would also allow for concatenation and minification of the code, as well as an easy way to move the HTML templates into JavaScript on build. It would then also be possible to adopt a better CSS strategy, with nesting and constants).
+
+It could be considered if the wine card should be a component of its own.
+
 
 ## Things to notice (disclaimer)
 1. By using the latest Bootstrap, there can be layout issues on IE9.

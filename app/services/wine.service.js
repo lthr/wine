@@ -8,7 +8,7 @@
       },
 
       addWine: function (wine) {
-        $localStorage.wines.push(wine);
+        this.getAllWine().push(wine);
       },
 
       getWine: function (id) {

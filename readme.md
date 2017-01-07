@@ -2,6 +2,8 @@
 
 This is a web app where you can keep track of the wines in your wine cellar, based on data from the [Wine.com Public API](https://api.wine.com/).
 
+[Live Demo](http://lthr.io/wine)
+
 ## Features
 1. Search for wines available on Wine.com.
 2. Add selected wines to your list.

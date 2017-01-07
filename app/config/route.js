@@ -27,12 +27,7 @@
       {
         name: 'add',
         url: '/add',
-        component: 'wineAdd',
-        resolve: {
-          wines: function (WineService) {
-            return WineService.getAllWine();
-          }
-        }
+        component: 'wineAdd'
       }
     ];
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Wines</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+
+<nav class="fixed-top">
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a class="nav-link"
+               ui-sref-active="active"
+               ui-sref="wines">Wines</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+               ui-sref-active="active"
+               ui-sref="add">Add</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <ui-view></ui-view>
+</div>
+
+<script src="//npmcdn.com/angular@latest/angular.min.js"></script>
+<script src="//npmcdn.com/angular-ui-router@1.0.0-alpha.4/release/angular-ui-router.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+<script src="app/app.js"></script>
+<script src="app/config/route.js"></script>
+<script src="app/components/list/list.component.js"></script>
+<script src="app/components/details/details.component.js"></script>
+<script src="app/components/add/add.component.js"></script>
+<script src="app/components/components.js"></script>
+<script src="app/services/wine.service.js"></script>
+<script src="app/config/constants.js"></script>
+
+</body>
+</html>

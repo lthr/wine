@@ -1,0 +1,44 @@
+<nav class="fixed-top sub-nav">
+    <nav class="navbar navbar-inverse">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link"
+                   ng-class="{active: $ctrl.propertyName === 'name'}"
+                   href="#" ng-click="$ctrl.sortBy('name')">Name</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   ng-class="{active: $ctrl.propertyName === 'vineyard'}"
+                   href="#" ng-click="$ctrl.sortBy('vineyard')">Vineyard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   ng-class="{active: $ctrl.propertyName === 'vintage'}"
+                   href="#" ng-click="$ctrl.sortBy('vintage')">Year</a>
+            </li>
+        </ul>
+    </nav>
+</nav>
+
+<div class="jumbotron" ng-if="!$ctrl.wines.length">
+    <h1 class="display-3">Hello!</h1>
+    <p class="lead">Welcome to Wines! To keep track of your wine cellar, get started and add your wines to the list.
+        Feel free to add additional comments on your wines once they're added. Enjoy!</p>
+    <a class="btn btn-primary btn-lg btn-block" ui-sref="add" role="button">Begin</a>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-12" ng-repeat="wine in $ctrl.wines | orderBy:$ctrl.propertyName:$ctrl.reverse track by $index">
+        <div class="card" ui-sref="details({ wineId: wine.id })">
+            <div class="card-block avatar">
+                <img ng-src="{{wine.label}}" class="circle"/>
+                <h5 class="card-title" ng-bind="wine.name"></h5>
+                <p class="card-text">
+                    <span ng-bind="wine.vineyard"></span><br/>
+                    <span ng-bind="wine.vintage"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 body {
-    padding-top: 110px;
+    padding-top: 125px;
+    background-color: #f1f7fb;
 }
 
 .avatar {
@@ -25,6 +26,7 @@ body {
 
 .sub-nav {
     top: 54px;
+    border-bottom: 1px solid #f1f7fb;
 }
 
 .nav-fill a.nav-link {

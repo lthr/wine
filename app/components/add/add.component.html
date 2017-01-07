@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <div class="alert alert-info" role="info" ng-if="$ctrl.pageLoad">
+    <div class="alert alert-default" role="info" ng-if="$ctrl.pageLoad">
         <h4 class="alert-heading">Search on Wine.com</h4>
         <p>Wine. com is the USA #1 online wine retailer offering thousands of wines, wine gifts, gift
             baskets and monthly wine clubs.</p>
@@ -39,7 +39,8 @@
     <div class="alert alert-success" role="info" ng-if="$ctrl.wineAdded">
         <h4 class="alert-heading">Well done!</h4>
         <p>You successfully added this wine to your list.</p>
-        <button type="button" class="btn btn-primary btn-block" ui-sref="details({ wineId: $ctrl.wineId })">Add details
+        <button type="button" class="btn btn-secondary btn-block" ui-sref="details({ wineId: $ctrl.wineId })">Add details
+        <button type="button" class="btn btn-primary btn-block" ui-sref="wines">Go to list
         </button>
     </div>
 

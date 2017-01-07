@@ -30,3 +30,10 @@ It could be considered if the wine card should be a component of its own.
 1. By using the latest Bootstrap, there can be layout issues on IE9.
 2. The layout optimized for mobile only, and tested with Safari on an iPhone 6.
 3. To be able to save wines for later, be sure your phone does not have Private Browsing enabled.
+
+
+## TODO's
+1. Add loading indicators, preferably using an httpInterceptor to toggle spinner on http calls.
+2. Add auto focus to Search field with an autofocus directive.
+3. Add an error handling if call to API fails, displaying an error message.
+4. Investigate if it's possible to check whether saving to local storage is possible, and if not, display a warning message.

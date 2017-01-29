@@ -1,9 +1,17 @@
 {
   "name": "Wine",
   "version": "1.0.0",
-  "scripts": {
-  },
+  "scripts": {},
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-replace": "^1.6.2"
+  },
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-ui-router": "beta",
+    "bootstrap": "alpha",
+    "ngstorage": "^0.3.11"
   }
 }

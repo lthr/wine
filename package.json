@@ -1,0 +1,9 @@
+{
+  "name": "Wine",
+  "version": "1.0.0",
+  "scripts": {
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

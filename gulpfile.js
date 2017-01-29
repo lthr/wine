@@ -2,9 +2,11 @@ const gulp = require('gulp');
 const del = require('del');
 const concat = require('gulp-concat');
 const htmlreplace = require('gulp-html-replace');
+const templateCache = require('gulp-angular-templatecache');
 
 const appJs = [
-    './src/**/*.js'
+    './src/**/*.js',
+    './tmp/templates.js'
 ];
 
 const vendorJs = [
@@ -18,10 +20,10 @@ const vendorCss = [
 ];
 
 gulp.task('clean', () => {
-  return del(['./dist/*']);
+  return del(['./dist/*', './tmp/*']);
 });
 
-gulp.task('dist:app:js', () => {
+gulp.task('dist:app:js', ['dist:templates'], () => {
   return gulp.src(appJs)
       .pipe(concat('app.js'))
       .pipe(gulp.dest('./dist/js'));
@@ -54,4 +56,10 @@ gulp.task('dist', ['dist:vendor:js', 'dist:vendor:css', 'dist:app:css', 'dist:ap
         'appJs': 'js/app.js'
       }))
       .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('dist:templates', function () {
+  return gulp.src('./src/app/**/*.html')
+      .pipe(templateCache())
+      .pipe(gulp.dest('./tmp'));
 });

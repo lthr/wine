@@ -5,8 +5,8 @@ const htmlreplace = require('gulp-html-replace');
 const templateCache = require('gulp-angular-templatecache');
 
 const appJs = [
-    './src/**/*.js',
-    './tmp/templates.js'
+  './src/**/*.js',
+  './tmp/templates.js'
 ];
 
 const vendorJs = [
@@ -26,40 +26,43 @@ gulp.task('clean', () => {
 gulp.task('dist:app:js', ['dist:templates'], () => {
   return gulp.src(appJs)
       .pipe(concat('app.js'))
-      .pipe(gulp.dest('./dist/js'));
+      .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('dist:vendor:js', () => {
   return gulp.src(vendorJs)
       .pipe(concat('vendor.js'))
-      .pipe(gulp.dest('./dist/js'));
+      .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('dist:vendor:css', () => {
   return gulp.src(vendorCss)
       .pipe(concat('vendor.css'))
-      .pipe(gulp.dest('./dist/css'));
+      .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('dist:app:css', () => {
   return gulp.src('./src/style/style.css')
       .pipe(concat('app.css'))
-      .pipe(gulp.dest('./dist/css'));
+      .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('dist', ['dist:vendor:js', 'dist:vendor:css', 'dist:app:css', 'dist:app:js'], () => {
   return gulp.src('./src/index.html')
       .pipe(htmlreplace({
-        'vendorCss': 'css/vendor.css',
-        'vendorJs': 'js/vendor.js',
-        'appCss': 'css/app.css',
-        'appJs': 'js/app.js'
+        'vendorCss': 'vendor.css',
+        'vendorJs': 'vendor.js',
+        'appCss': 'app.css',
+        'appJs': 'app.js'
       }))
       .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('dist:templates', function () {
   return gulp.src('./src/app/**/*.html')
-      .pipe(templateCache())
+      .pipe(templateCache({
+        root: './app',
+        module: 'app'
+      }))
       .pipe(gulp.dest('./tmp'));
 });

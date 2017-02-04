@@ -10,6 +10,21 @@ module.exports = {
     dest: dest
   },
 
+  rev: {
+    src: [
+      `${dest}/**/*.js`, `${dest}/**/*.css`
+    ],
+    dest: dest,
+    manifest: {
+      src: `${temp}/rev-manifest.json`,
+      dest: temp
+    },
+    index: {
+      src: `${dest}/index.html`,
+      dest
+    }
+  },
+
   vendorJs: {
     src: [
       './node_modules/angular/angular.min.js', './node_modules/angular-ui-router/release/angular-ui-router.min.js', './node_modules/ngstorage/ngStorage.min.js'
@@ -18,7 +33,9 @@ module.exports = {
   },
 
   appJs: {
-    src: ['./src/**/*.js', './.tmp/*.js'],
+    src: [
+      './src/**/*.js', './.tmp/*.js'
+    ],
     dest: `${dest}/js`
   },
 

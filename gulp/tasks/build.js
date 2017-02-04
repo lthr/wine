@@ -13,9 +13,9 @@ gulp.task('build:app:js', ['build:app:templates'], () => {
     gulp
       .src(config.appJs.src)
       .pipe(concat('app.js'))
-      .pipe(ngAnnotate())
-      .pipe(babel()),
-    //uglify(),
+      .pipe(babel())
+      .pipe(ngAnnotate()),
+    uglify(),
     gulp.dest(config.appJs.dest)
   ])
 });

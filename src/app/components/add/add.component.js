@@ -1,38 +1,37 @@
 (function (angular) {
   'use strict';
 
-  /*@ngInject*/
   function WineAddController(WineService) {
-    var vm = this;
-    vm.pageLoad = true;
-    vm.searchWine = function () {
-      vm.noSearchResults = false;
-      if (vm.query) {
-        vm.pageLoad = false;
+    'ngInject';
+    this.pageLoad = true;
+    this.searchWine = () => {
+      this.noSearchResults = false;
+      if (this.query) {
+        this.pageLoad = false;
         WineService
-          .searchWine(vm.query)
-          .then(function (res) {
-            vm.searchResult = res.data.Products.List;
-            vm.noSearchResults = !vm.searchResult.length;
-          }, function (err) {
+          .searchWine(this.query)
+          .then(res => {
+            this.searchResult = res.data.Products.List;
+            this.noSearchResults = !this.searchResult.length;
+          }, err => {
             //TODO add error handling
             console.log('Error: ', err);
           });
       } else {
-        vm.pageLoad = true;
+        this.pageLoad = true;
       }
     };
 
-    vm.addWine = function (wine) {
-      vm.wineId = new Date().valueOf();
-      WineService.addWine({'id': vm.wineId, 'name': wine.Name, 'vineyard': wine.Vineyard.Name, 'vintage': wine.Vintage, 'label': wine.Labels[0].Url});
-      vm.query = '';
-      vm.searchResult = [];
-      vm.wineAdded = true;
+    this.addWine = wine => {
+      this.wineId = new Date().valueOf();
+      WineService.addWine({'id': this.wineId, 'name': wine.Name, 'vineyard': wine.Vineyard.Name, 'vintage': wine.Vintage, 'label': wine.Labels[0].Url});
+      this.query = '';
+      this.searchResult = [];
+      this.wineAdded = true;
     };
   }
 
-  var wineAdd = {
+  const wineAdd = {
     bindings: {
       wines: '<'
     },

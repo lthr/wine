@@ -4,7 +4,7 @@ const del = require('del');
 
 gulp.task('clean', () => {
   return del([
-    `${config.dest}/*`,
-    `${config.temp}/*`
+    `${config.dest}/**/*`,
+    `${config.temp}/**/*`
   ]);
 });

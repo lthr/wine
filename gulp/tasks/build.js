@@ -2,13 +2,20 @@ const gulp = require('gulp');
 const config = require('../config');
 const concat = require('gulp-concat');
 const htmlReplace = require('gulp-html-replace');
+const ngAnnotate = require('gulp-ng-annotate');
+const pump = require('pump');
 const templateCache = require('gulp-angular-templatecache');
+const uglify = require('gulp-uglify');
 
 gulp.task('build:app:js', ['build:app:templates'], () => {
-  return gulp
-    .src(config.appJs.src)
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest(config.appJs.dest));
+  return pump([
+    gulp
+      .src(config.appJs.src)
+      .pipe(concat('app.js'))
+      .pipe(ngAnnotate()),
+    uglify(),
+    gulp.dest(config.appJs.dest)
+  ])
 });
 
 gulp.task('build:vendor:js', () => {

@@ -1,7 +1,8 @@
 (function (angular) {
   'use strict';
 
-  var WineService = function ($http, $localStorage, wineApi) {
+  /*@ngInject*/
+  function WineService($http, $localStorage, wineApi) {
     return {
       getAllWine: function () {
         if (!$localStorage.wines) {
@@ -11,13 +12,17 @@
       },
 
       addWine: function (wine) {
-        this.getAllWine().push(wine);
+        this
+          .getAllWine()
+          .push(wine);
       },
 
       getWine: function (id) {
-        return this.getAllWine().filter(function (wine) {
-          return wine.id === Number(id);
-        })[0];
+        return this
+          .getAllWine()
+          .filter(function (wine) {
+            return wine.id === Number(id);
+          })[0];
       },
 
       searchWine: function (query) {
@@ -43,9 +48,10 @@
         }
       }
     };
-  };
+  }
 
-  angular.module('app')
-      .service('WineService', WineService);
+  angular
+    .module('app')
+    .service('WineService', WineService);
 
 })(window.angular);

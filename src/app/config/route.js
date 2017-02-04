@@ -1,7 +1,8 @@
 (function (angular) {
   'use strict';
 
-  var Routes = function ($stateProvider, $urlRouterProvider) {
+  /*@ngInject*/
+  function Routes($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/wines');
 
     var states = [
@@ -10,7 +11,8 @@
         url: '/wines',
         component: 'wineList',
         resolve: {
-          wines: function (WineService) {
+          wines:/*@ngInject*/
+          function (WineService) {
             return WineService.getAllWine();
           }
         }
@@ -19,12 +21,12 @@
         url: '/wines/{wineId}',
         component: 'wineDetails',
         resolve: {
-          wine: function (WineService, $transition$) {
+          wine:/*@ngInject*/
+          function (WineService, $transition$) {
             return WineService.getWine($transition$.params().wineId);
           }
         }
-      },
-      {
+      }, {
         name: 'add',
         url: '/add',
         component: 'wineAdd'
@@ -34,9 +36,10 @@
     states.forEach(function (state) {
       $stateProvider.state(state);
     });
-  };
+  }
 
-  angular.module('routes', [])
-      .config(Routes);
+  angular
+    .module('routes', [])
+    .config(Routes);
 
 })(window.angular);

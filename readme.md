@@ -29,6 +29,8 @@ All template files are moved to JavaScript with template cache.
 
 The code is annotated (dependency injection), minified and revisioned using Gulp.
 
+The app builds on TravisCI and deploys to GitHub Pages (check the `gh-pages` branch).
+
 
 ## Things to notice (disclaimer)
 1. By using the latest Bootstrap, there can be layout issues on IE9.

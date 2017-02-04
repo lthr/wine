@@ -4,6 +4,8 @@ This is a web app where you can keep track of the wines in your wine cellar, bas
 
 [Live Demo](http://lthr.io/wine)
 
+[![Build Status](https://travis-ci.org/lthr/wine.svg?branch=master)](https://travis-ci.org/lthr/wine)
+
 ## Features
 1. Search for wines available on Wine.com.
 2. Add selected wines to your list.

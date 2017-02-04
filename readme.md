@@ -16,16 +16,18 @@ This is a web app where you can keep track of the wines in your wine cellar, bas
 
 
 ## Technologies used
-The application have been made using AngularJS with a beta release of UI-Router ([which supports AngularJS 1.5+ components](https://ui-router.github.io/blog/route-to-component/)). 
+The application have been made using AngularJS 1.6 with a beta release of UI-Router ([which supports AngularJS 1.5+ components](https://ui-router.github.io/blog/route-to-component/)). 
 To be able to store wines on your unit, [ngStorage](https://github.com/gsklee/ngStorage) have been implemented.
 
 As grid system, I've chosen the [Alpha 6 version of Bootstrap](https://blog.getbootstrap.com/2017/01/06/bootstrap-4-alpha-6/), to try out their rewrite of all components into flexbox.
 
 As JavaScript styleguide I've chosen to rely loosely on Tood Motto's guide for AngularJS.
 
-JavaScript ES5 have been chosen due to time constraints. Optimally the app should be rewritten in ES6, using a build runner such as Gulp or Webpack to convert ES6 to ES5 (e.g. [Babel](https://babeljs.io/)). This would also allow for concatenation and minification of the code, as well as an easy way to move the HTML templates into JavaScript on build. It would then also be possible to adopt a better CSS strategy, with nesting and constants).
+The JavaScript language is ES5.
 
-It could be considered if the wine card should be a component of its own.
+All template files are moved to JavaScript with template cache.
+
+The code is annotated (dependency injection), minified and revisioned using Gulp.
 
 
 ## Things to notice (disclaimer)
@@ -39,3 +41,4 @@ It could be considered if the wine card should be a component of its own.
 2. Add auto focus to Search field with an autofocus directive.
 3. Add an error handling if call to API fails, displaying an error message.
 4. Investigate if it's possible to check whether saving to local storage is possible, and if not, display a warning message.
+5. Add BabelJS and convert app to ES6.

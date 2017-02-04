@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "scripts": {},
   "devDependencies": {
+    "babel-preset-env": "^1.1.8",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
+    "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
     "gulp-html-replace": "^1.6.2",
     "gulp-ng-annotate": "^2.0.0",

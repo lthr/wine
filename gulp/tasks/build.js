@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const config = require('../config');
+const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const htmlReplace = require('gulp-html-replace');
 const ngAnnotate = require('gulp-ng-annotate');
@@ -12,8 +13,9 @@ gulp.task('build:app:js', ['build:app:templates'], () => {
     gulp
       .src(config.appJs.src)
       .pipe(concat('app.js'))
-      .pipe(ngAnnotate()),
-    uglify(),
+      .pipe(ngAnnotate())
+      .pipe(babel()),
+    //uglify(),
     gulp.dest(config.appJs.dest)
   ])
 });

@@ -15,7 +15,7 @@ gulp.task('revision', ['build'], () => {
 });
 
 gulp.task('revreplace', ['revision'], () => {
-  var manifest = gulp.src(config.rev.manifest.src);
+  const manifest = gulp.src(config.rev.manifest.src);
 
   return gulp
     .src(config.rev.index.src)

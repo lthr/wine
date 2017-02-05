@@ -1,10 +1,7 @@
-const gulp = require('gulp');
-const config = require('../config.js');
-const del = require('del');
+import gulp from 'gulp';
+import config from '../config.js';
+import del from 'del';
 
 gulp.task('clean', () => {
-  return del([
-    `${config.dest}/**/*`,
-    `${config.temp}/**/*`
-  ]);
+  return del([`${config.dest}/**/*`, `${config.temp}/**/*`]);
 });

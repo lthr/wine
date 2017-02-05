@@ -1,13 +1,13 @@
-const gulp = require('gulp');
-const config = require('../config');
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const htmlReplace = require('gulp-html-replace');
-const ngAnnotate = require('gulp-ng-annotate');
-const pump = require('pump');
-const templateCache = require('gulp-angular-templatecache');
-const uglify = require('gulp-uglify');
-const wrap = require('gulp-wrap');
+import gulp from 'gulp';
+import config from '../config';
+import babel from 'gulp-babel';
+import concat from 'gulp-concat';
+import htmlReplace from 'gulp-html-replace';
+import ngAnnotate from 'gulp-ng-annotate';
+import pump from 'pump';
+import templateCache from 'gulp-angular-templatecache';
+import uglify from 'gulp-uglify';
+import wrap from 'gulp-wrap';
 
 gulp.task('build:app:js', ['build:app:templates'], () => {
   return pump([

@@ -1,24 +1,24 @@
-const gulp = require('gulp');
-const config = require('../config').rev;
-const rev = require('gulp-rev');
-const revdel = require('gulp-rev-delete-original');
-const revReplace = require('gulp-rev-replace');
+import gulp from 'gulp';
+import config from '../config';
+import rev from 'gulp-rev';
+import revdel from 'gulp-rev-delete-original';
+import revReplace from 'gulp-rev-replace';
 
 gulp.task('revision', ['build'], () => {
   return gulp
-    .src(config.src)
+    .src(config.rev.src)
     .pipe(rev())
     .pipe(revdel())
     .pipe(gulp.dest(config.dest))
     .pipe(rev.manifest())
-    .pipe(gulp.dest(config.manifest.dest))
+    .pipe(gulp.dest(config.rev.manifest.dest))
 });
 
 gulp.task('revreplace', ['revision'], () => {
-  var manifest = gulp.src(config.manifest.src);
+  var manifest = gulp.src(config.rev.manifest.src);
 
   return gulp
-    .src(config.index.src)
+    .src(config.rev.index.src)
     .pipe(revReplace({manifest: manifest}))
-    .pipe(gulp.dest(config.index.dest));
+    .pipe(gulp.dest(config.rev.index.dest));
 });

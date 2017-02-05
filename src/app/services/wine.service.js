@@ -1,6 +1,3 @@
-(function (angular) {
-  'use strict';
-
   /*@ngInject*/
   function WineService($http, $localStorage, wineApi) {
     return {
@@ -53,5 +50,3 @@
   angular
     .module('app')
     .service('WineService', WineService);
-
-})(window.angular);

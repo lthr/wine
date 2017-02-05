@@ -1,29 +1,24 @@
-(function (angular) {
-  'use strict';
-
-  /*@ngInject*/
-  function WineDetailsController(WineService, $state) {
-    var vm = this;
-    vm.updateComment = function (id, comments) {
-      WineService.updateComment(id, comments);
-      $state.go('wines');
-    };
-    vm.deleteWine = function (id) {
-      WineService.deleteWine(id);
-      $state.go('wines');
-    };
-  }
-
-  var wineDetails = {
-    bindings: {
-      wine: '<'
-    },
-    templateUrl: './app/components/details/details.component.html',
-    controller: WineDetailsController
+/*@ngInject*/
+function WineDetailsController(WineService, $state) {
+  var vm = this;
+  vm.updateComment = function (id, comments) {
+    WineService.updateComment(id, comments);
+    $state.go('wines');
   };
+  vm.deleteWine = function (id) {
+    WineService.deleteWine(id);
+    $state.go('wines');
+  };
+}
 
-  angular
-    .module('WineDetails', [])
-    .component('wineDetails', wineDetails);
+var wineDetails = {
+  bindings: {
+    wine: '<'
+  },
+  templateUrl: './app/components/details/details.component.html',
+  controller: WineDetailsController
+};
 
-})(window.angular);
+angular
+  .module('WineDetails', [])
+  .component('wineDetails', wineDetails);

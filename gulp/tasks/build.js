@@ -7,15 +7,17 @@ const ngAnnotate = require('gulp-ng-annotate');
 const pump = require('pump');
 const templateCache = require('gulp-angular-templatecache');
 const uglify = require('gulp-uglify');
+const wrap = require('gulp-wrap');
 
 gulp.task('build:app:js', ['build:app:templates'], () => {
   return pump([
     gulp
       .src(config.appJs.src)
+      .pipe(wrap('(function(angular){\n\'use strict\';\n<%= contents %>})(window.angular);'))
       .pipe(concat('app.js'))
       .pipe(babel())
       .pipe(ngAnnotate()),
-    uglify(),
+    //uglify(),
     gulp.dest(config.appJs.dest)
   ])
 });

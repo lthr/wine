@@ -1,46 +1,41 @@
-(function (angular) {
-  'use strict';
+/*@ngInject*/
+function Routes($stateProvider, $urlRouterProvider, $locationProvider) {
+  $locationProvider.hashPrefix('');
+  $urlRouterProvider.otherwise('/wines');
 
-  /*@ngInject*/
-  function Routes($stateProvider, $urlRouterProvider, $locationProvider) {
-    $locationProvider.hashPrefix('');
-    $urlRouterProvider.otherwise('/wines');
-
-    var states = [
-      {
-        name: 'wines',
-        url: '/wines',
-        component: 'wineList',
-        resolve: {
-          wines:/*@ngInject*/
-          function (WineService) {
-            return WineService.getAllWine();
-          }
+  var states = [
+    {
+      name: 'wines',
+      url: '/wines',
+      component: 'wineList',
+      resolve: {
+        wines:/*@ngInject*/
+        function (WineService) {
+          return WineService.getAllWine();
         }
-      }, {
-        name: 'details',
-        url: '/wines/{wineId}',
-        component: 'wineDetails',
-        resolve: {
-          wine:/*@ngInject*/
-          function (WineService, $transition$) {
-            return WineService.getWine($transition$.params().wineId);
-          }
-        }
-      }, {
-        name: 'add',
-        url: '/add',
-        component: 'wineAdd'
       }
-    ];
+    }, {
+      name: 'details',
+      url: '/wines/{wineId}',
+      component: 'wineDetails',
+      resolve: {
+        wine:/*@ngInject*/
+        function (WineService, $transition$) {
+          return WineService.getWine($transition$.params().wineId);
+        }
+      }
+    }, {
+      name: 'add',
+      url: '/add',
+      component: 'wineAdd'
+    }
+  ];
 
-    states.forEach(function (state) {
-      $stateProvider.state(state);
-    });
-  }
+  states.forEach(function (state) {
+    $stateProvider.state(state);
+  });
+}
 
-  angular
-    .module('routes', [])
-    .config(Routes);
-
-})(window.angular);
+angular
+  .module('routes', [])
+  .config(Routes);

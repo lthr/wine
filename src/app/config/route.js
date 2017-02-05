@@ -2,7 +2,8 @@
   'use strict';
 
   /*@ngInject*/
-  function Routes($stateProvider, $urlRouterProvider) {
+  function Routes($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/wines');
 
     var states = [

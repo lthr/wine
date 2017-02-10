@@ -1,54 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
     <meta charset="UTF-8">
     <title>Wines</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- build:vendorCss -->
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!-- endbuild -->
-    <!-- build:appCss -->
-    <link rel="stylesheet" href="style/style.css">
-    <!-- endbuild -->
-
+    <base href="/">
 </head>
+
 <body>
-
-<nav class="fixed-top">
-    <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-            <a class="nav-link"
-               ui-sref-active="active"
-               ui-sref="wines">Wines</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link"
-               ui-sref-active="active"
-               ui-sref="add">Add</a>
-        </li>
-    </ul>
-</nav>
-
-<div class="container-fluid">
-    <ui-view></ui-view>
-</div>
-
-<!-- build:vendorJs -->
-<script src="./node_modules/angular/angular.min.js"></script>
-<script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="./node_modules/ngstorage/ngStorage.min.js"></script>
-<!-- endbuild -->
-
-<!-- build:appJs -->
-<script src="app/app.js"></script>
-<script src="app/config/route.js"></script>
-<script src="app/components/list/list.component.js"></script>
-<script src="app/components/details/details.component.js"></script>
-<script src="app/components/add/add.component.js"></script>
-<script src="app/components/components.js"></script>
-<script src="app/services/wine.service.js"></script>
-<script src="app/config/constants.js"></script>
-<!-- endbuild -->
-
+    <app></app>
 </body>
+
 </html>

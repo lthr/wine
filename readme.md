@@ -21,15 +21,13 @@ To be able to store wines on your unit, [ngStorage](https://github.com/gsklee/ng
 
 As grid system, I've chosen the [Alpha 6 version of Bootstrap](https://blog.getbootstrap.com/2017/01/06/bootstrap-4-alpha-6/), to try out their rewrite of all components into flexbox.
 
-As JavaScript styleguide I've chosen to rely loosely on Tood Motto's guide for AngularJS.
+As JavaScript styleguide I've chosen to rely on[https://github.com/toddmotto/angular-styleguide](Tood Motto's guide for AngularJS).
 
-The JavaScript language is ES5.
+The JavaScript language is ES6, using classes, imports and exports, to mimic Angular 2's code style.
 
-All template files are moved to JavaScript with template cache.
+The code is bundled with [https://webpack.github.io/](Webpack).
 
-The code is annotated (dependency injection), minified and revisioned using Gulp.
-
-The app builds on TravisCI and deploys to GitHub Pages (check the `gh-pages` branch).
+The app builds on [https://travis-ci.org](TravisCI) and deploys to GitHub Pages (check the `gh-pages` branch for generated code).
 
 
 ## Things to notice (disclaimer)
@@ -43,4 +41,4 @@ The app builds on TravisCI and deploys to GitHub Pages (check the `gh-pages` bra
 2. Add auto focus to Search field with an autofocus directive.
 3. Add an error handling if call to API fails, displaying an error message.
 4. Investigate if it's possible to check whether saving to local storage is possible, and if not, display a warning message.
-5. Add BabelJS and convert app to ES6.
+5. Add BabelJS and convert app from ES6 to ES5.

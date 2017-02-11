@@ -1,1 +1,0 @@
-angular.module('components', ['WineAdd', 'WineDetails', 'WineList']);

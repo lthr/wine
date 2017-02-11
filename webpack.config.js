@@ -1,9 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const styleLoader = require('style-loader');
-const cssLoader = require('css-loader');
-const htmlLoader = require('html-loader');
-const webpack = require('webpack');
 
 module.exports = {
     entry: './src/app/app.module.js',

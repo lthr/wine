@@ -21,13 +21,13 @@ To be able to store wines on your unit, [ngStorage](https://github.com/gsklee/ng
 
 As grid system, I've chosen the [Alpha 6 version of Bootstrap](https://blog.getbootstrap.com/2017/01/06/bootstrap-4-alpha-6/), to try out their rewrite of all components into flexbox.
 
-As JavaScript styleguide I've chosen to rely on[https://github.com/toddmotto/angular-styleguide](Tood Motto's guide for AngularJS).
+As JavaScript styleguide I've chosen to rely on[Tood Motto's guide for AngularJS](https://github.com/toddmotto/angular-styleguide).
 
 The JavaScript language is ES6, using classes, imports and exports, to mimic Angular 2's code style.
 
-The code is bundled with [https://webpack.github.io/](Webpack).
+The code is bundled with [Webpack](https://webpack.github.io/).
 
-The app builds on [https://travis-ci.org](TravisCI) and deploys to GitHub Pages (check the `gh-pages` branch for generated code).
+The app builds on [TravisCI](https://travis-ci.org) and deploys to GitHub Pages (check the `gh-pages` branch for generated code).
 
 
 ## Things to notice (disclaimer)

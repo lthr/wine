@@ -1,5 +1,6 @@
-.idea
-.tmp
+.idea/
+.vscode/
+.tmp/
 dist/
 node_modules/
 tmp/

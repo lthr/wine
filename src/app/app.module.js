@@ -7,12 +7,19 @@ import {ConstantsModule} from './config/constants.module';
 import 'bootstrap/dist/css/bootstrap.css';
 import './app.css';
 
-const config = ($locationProvider, $urlRouterProvider) => {
+const config = ($locationProvider, $urlRouterProvider, $compileProvider) => {
   $locationProvider.hashPrefix('');
   $urlRouterProvider.otherwise('/wines');
+
+  // remove debug overhead (should only be done for prod though)
+  $compileProvider.debugInfoEnabled(false);
 };
 
-config.$inject = ['$locationProvider', '$urlRouterProvider'];
+config.$inject = [
+  '$locationProvider',
+  '$urlRouterProvider',
+  '$compileProvider'
+];
 
 export const AppModule = angular
     .module('app', [CommonModule, ConstantsModule, uiRouter, ngStorage.name])

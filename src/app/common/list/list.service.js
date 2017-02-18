@@ -1,7 +1,6 @@
 export class ListService {
 
     constructor($localStorage) {
-        'ngInject;'
         this.$localStorage = $localStorage;
     }
 
@@ -11,5 +10,7 @@ export class ListService {
         }
         return this.$localStorage.wines;
     }
-    
+
 }
+
+ListService.$inject = ['$localStorage'];

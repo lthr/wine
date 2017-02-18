@@ -7,12 +7,15 @@ import {ConstantsModule} from './config/constants.module';
 import 'bootstrap/dist/css/bootstrap.css';
 import './app.css';
 
+const config = ($locationProvider, $urlRouterProvider) => {
+  $locationProvider.hashPrefix('');
+  $urlRouterProvider.otherwise('/wines');
+};
+
+config.$inject = ['$locationProvider', '$urlRouterProvider'];
+
 export const AppModule = angular
     .module('app', [CommonModule, ConstantsModule, uiRouter, ngStorage.name])
     .component('app', AppComponent)
-    .config(($locationProvider, $urlRouterProvider) => {
-        'ngInject';
-        $locationProvider.hashPrefix('');
-        $urlRouterProvider.otherwise('/wines');
-    })
+    .config(config)
     .name;

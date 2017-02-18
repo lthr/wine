@@ -1,6 +1,5 @@
 export class DetailsService {
     constructor($localStorage) {
-        'ngInject;'
         this.$localStorage = $localStorage;
     }
 
@@ -34,5 +33,6 @@ export class DetailsService {
             }
         }
     }
-
 }
+
+DetailsService.$inject = ['$localStorage'];

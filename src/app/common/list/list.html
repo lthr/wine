@@ -22,7 +22,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-12" ng-repeat="wine in $ctrl.wines | orderBy:$ctrl.propertyName:$ctrl.reverse track by $index">
+    <div class="col-sm-12" ng-repeat="wine in $ctrl.wines | orderBy:$ctrl.propertyName:$ctrl.reverse track by wine.id">
         <div class="card" ui-sref="details({ wineId: wine.id })">
             <div class="card-block avatar">
                 <img ng-src="{{wine.label}}" class="circle" />

@@ -1,20 +1,31 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = function (env) {
   return {
-    entry: './src/app/app.module.js',
+    entry: {
+      main: './src/app/app.module.js'
+    },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: env.prod
-          ? '[name].[hash].js'
-          : '[name].bundle.js'
+      filename: '[name].[chunkhash].js'
     },
     plugins: [
       new HtmlWebpackPlugin({
         baseHref: env.prod ? '/wine/' : '/',
         template: './src/index.ejs',
         filename: 'index.html'
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        minChunks: function (module) {
+          // this assumes your vendor imports exist in the node_modules directory
+          return module.context && module.context.indexOf('node_modules') !== -1;
+        }
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        names: ['vendor', 'manifest'] // Specify the common bundle's name.
       })
     ],
     devtool: 'eval-source-map',
